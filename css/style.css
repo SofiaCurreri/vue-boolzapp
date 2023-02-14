@@ -24,7 +24,36 @@ img {
   height: 5rem;
 }
 
-.grey-icon {
-  color: grey;
+.icon {
   font-size: 2rem;
+}
+
+.grey.icon {
+  color: rgb(177, 177, 177);
+}
+
+.bell.icon {
+  color: rgb(141, 218, 252);
+  background-color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+#notifiche {
+  background-color: rgb(141, 218, 252) !important;
+}
+
+#notifiche a {
+  text-decoration: underline;
+  color: grey;
+}
+
+.input-group-text {
+  background-color: white;
+  color: rgb(177, 177, 177);
+}
+
+#search {
+  height: 60px;
 }
