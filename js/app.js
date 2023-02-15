@@ -195,6 +195,15 @@ const app = createApp({
       ],
     };
   },
+
+  methods: {
+    showTextMex() {
+      const mexChat = document.querySelector(".message");
+      const mexClass =
+        this.contacts.messages.status == "received" ? " .received" : " .sent";
+      mexChat.innerHTML.add(mexClass);
+    },
+  },
 });
 
 app.mount("#app");
