@@ -116,11 +116,15 @@
         </header>
 
         <!-- MAIN CHAT -->
-        <div class="main-chat flex-grow-1 d-flex flex-column align-items-start">
-          <div class="message received p-2 m-2" v-for="contact in contacts">
-            <p class="p-0 m-0" v-for="(message,index) in messages">
-              {{message.text}}
-            </p>
+        <div
+          class="main-chat flex-grow-1 d-flex flex-column align-items-start"
+          v-for="contact in contacts"
+        >
+          <div
+            class="message received p-2 m-2"
+            v-for="message in contact.messages"
+          >
+            <p class="p-0 m-0">{{message.text}}</p>
             <small class="message-date">15:30</small>
           </div>
         </div>
