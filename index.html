@@ -78,7 +78,9 @@
         <ul class="list-contacts flex-grow-1 m-0 p-0">
           <li
             class="list-contacts--contact d-flex p-2"
-            v-for="(contact,index) in contacts"
+            v-for="(contact,contactIndex) in contacts"
+            @click="activeContact = contactIndex"
+            :class="contactIndex == activeContact ? 'contact--active' : '' "
           >
             <div class="contact--left d-flex flex-grow-1">
               <img
@@ -104,9 +106,13 @@
         <!-- HEADER CHAT COL -->
         <header class="contacts-col--header d-flex justify-content-between p-2">
           <div class="d-flex align-items-center">
-            <img src="./img/avatar_1.jpg" class="avatar" alt="" />
+            <img
+              :src="'./img/avatar' + contacts[activeContact].avatar + '.jpg'"
+              class="avatar"
+              alt=""
+            />
             <p class="my-0 mx-2">
-              Michele<br />
+              {{contacts[activeContact].name}}<br />
               <span class="latest-access">Ultimo accesso ore 12:00</span>
             </p>
           </div>
@@ -118,16 +124,14 @@
         </header>
 
         <!-- MAIN CHAT -->
-        <div
-          class="main-chat flex-grow-1 d-flex flex-column align-items-start"
-          v-for="contact in contacts"
-        >
+        <div class="main-chat flex-grow-1 d-flex flex-column align-items-start">
           <div
+            v-for="message in contacts[activeContact].messages"
             class="message received p-2 m-2"
-            v-for="message in contact.messages"
+            :class=" message.status"
           >
             <p class="p-0 m-0">{{message.text}}</p>
-            <small class="message-date">15:30</small>
+            <small class="message-date">{{message.date}}</small>
           </div>
         </div>
 
