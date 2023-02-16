@@ -201,6 +201,8 @@ const app = createApp({
       },
 
       activeContact: 0,
+      filteredList: [],
+      search: "",
     };
   },
 
@@ -220,13 +222,18 @@ const app = createApp({
         });
       }, 1000);
     },
+  },
 
-    findContact() {
-      const listaContatti = document.getElementById("lista-contatti");
-      if (this.contacts.name.includes(value)) {
-        listaContatti.innerHTML += this.contacts;
-      }
+  watch: {
+    search: function () {
+      this.filteredList = this.contacts.filter((contact) =>
+        contact.name.toLowerCase().includes(this.search.toLowerCase())
+      );
     },
+  },
+
+  created: function () {
+    this.filteredList = this.contacts;
   },
 });
 
