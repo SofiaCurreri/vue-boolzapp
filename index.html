@@ -142,7 +142,9 @@
           </div>
           <div class="flex-grow-1">
             <input
+              @keyUp.enter="sendMessage()"
               type="text"
+              v-model="newMessage.text"
               placeholder="Scrivi un messaggio"
               class="send-message-input px-4 p-2"
             />

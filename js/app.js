@@ -193,16 +193,32 @@ const app = createApp({
           ],
         },
       ],
+
+      newMessage: {
+        date: "10:26",
+        text: "",
+        status: "sent",
+      },
+
       activeContact: 0,
     };
   },
 
   methods: {
-    showTextMex() {
-      const mexChat = document.querySelector(".message");
-      const mexClass =
-        this.contacts.messages.status == "received" ? " .received" : " .sent";
-      mexChat.innerHTML.add(mexClass);
+    sendMessage() {
+      this.contacts[this.activeContact].messages.push({
+        date: this.newMessage.date,
+        text: this.newMessage.text,
+        status: this.newMessage.status,
+      });
+
+      setTimeout(() => {
+        this.contacts[this.activeContact].messages.push({
+          date: "10:27",
+          text: "ok",
+          status: "received",
+        });
+      }, 1000);
     },
   },
 });
