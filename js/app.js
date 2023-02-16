@@ -220,6 +220,13 @@ const app = createApp({
         });
       }, 1000);
     },
+
+    findContact() {
+      const listaContatti = document.getElementById("lista-contatti");
+      if (this.contacts.name.includes(value)) {
+        listaContatti.innerHTML += this.contacts;
+      }
+    },
   },
 });
 
