@@ -201,8 +201,8 @@ const app = createApp({
       },
 
       activeContact: 0,
-      filteredList: [],
-      search: "",
+
+      searchContact: "", //termine per filtrare utenti
     };
   },
 
@@ -222,18 +222,18 @@ const app = createApp({
         });
       }, 1000);
     },
-  },
 
-  watch: {
-    search: function () {
-      this.filteredList = this.contacts.filter((contact) =>
-        contact.name.toLowerCase().includes(this.search.toLowerCase())
-      );
+    filteredList() {
+      this.contacts.forEach((contact) => {
+        if (
+          contact.name.toLowerCase().includes(this.searchContact.toLowerCase())
+        ) {
+          contact.visible = true;
+        } else {
+          contact.visible = false;
+        }
+      });
     },
-  },
-
-  created: function () {
-    this.filteredList = this.contacts;
   },
 });
 
