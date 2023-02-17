@@ -116,7 +116,11 @@
             />
             <p class="my-0 mx-2">
               {{contacts[activeContact].name}}<br />
-              <span class="latest-access">Ultimo accesso ore 12:00</span>
+              <span class="latest-access"
+                >Ultimo accesso
+                {{contacts[activeContact].messages[contacts[activeContact].messages.length
+                - 1].date}}</span
+              >
             </p>
           </div>
           <div class="d-flex align-items-center icons">
