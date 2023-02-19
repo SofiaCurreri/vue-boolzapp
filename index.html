@@ -68,9 +68,9 @@
             <i class="fa-solid fa-magnifying-glass mx-2"></i>
           </div>
           <input
+            class="p-2"
             v-model="searchContact"
             @keyUp="filteredList()"
-            class="p-2"
             type="text"
             placeholder="Cerca o inizia una nuova chat"
           />
@@ -79,10 +79,10 @@
         <!-- LIST CONTACTS -->
         <ul class="list-contacts flex-grow-1 m-0 p-0">
           <li
-            class="list-contacts--contact d-flex p-2"
-            v-for="(contact,contactIndex) in contacts"
+            v-for="(contact, contactIndex) in contacts"
             v-show="contact.visible"
             @click="activeContact = contactIndex"
+            class="list-contacts--contact d-flex p-2"
             :class="contactIndex == activeContact ? 'contact--active' : '' "
           >
             <div class="contact--left d-flex flex-grow-1">
