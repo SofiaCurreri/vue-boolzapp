@@ -129,6 +129,7 @@ body {
 }
 
 .list-contacts--contact {
+  display: flex;
   border-bottom: 1px solid var(--low-contrast-bg);
   cursor: pointer;
 }

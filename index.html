@@ -82,7 +82,7 @@
             v-for="(contact, contactIndex) in contacts"
             v-show="contact.visible"
             @click="activeContact = contactIndex"
-            class="list-contacts--contact d-flex p-2"
+            class="list-contacts--contact p-2"
             :class="contactIndex == activeContact ? 'contact--active' : '' "
           >
             <div class="contact--left d-flex flex-grow-1">
